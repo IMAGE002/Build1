@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>эляр ты лох</title>
+<title>Infinite Telegram Background</title>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
@@ -54,6 +54,12 @@
     justify-content: center;
     z-index: 1000;
     padding-top: 50vh;
+  }
+
+  #lottie-container {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 32px;
   }
 
   .loading-bar-wrapper {
@@ -1828,6 +1834,7 @@
 </div>
 
 <div class="loading-container">
+  <div id="lottie-container"></div>
   <div class="loading-bar-wrapper">
     <div class="loading-bar-bg">
       <div class="loading-bar-fill"></div>
@@ -1838,6 +1845,17 @@
     If you are seeing this at production please restart the website
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script>
+  lottie.loadAnimation({
+    container: document.getElementById('lottie-container'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'assets/dev_duck--@DMJ_Stickers.json'
+  });
+</script>
 
 </body>
 </html>
