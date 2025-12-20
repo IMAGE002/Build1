@@ -2,50 +2,58 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Infinite SVG Pattern</title>
+<title>Infinite Telegram Background</title>
 
 <style>
   html, body {
     margin: 0;
     height: 100%;
-    background: #0f1a24;
+  }
+
+  body {
+    background-color: #0f1a24;
     overflow-y: auto;
   }
 
-  .scroll {
-    height: 1000vh; /* infinite illusion */
+  /* fixed background layer */
+  .bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
   }
 
-  svg {
+  .bg svg {
     width: 100%;
     height: 100%;
-    display: block;
+  }
+
+  .content {
+    position: relative;
+    min-height: 500vh;
+    color: white;
+    padding: 40px;
+    font-family: sans-serif;
+    z-index: 1;
   }
 </style>
 </head>
 <body>
 
-<div class="scroll">
-<svg version="1.1" id="Слой_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1125 2436" style="enable-background:new 0 0 1125 2436;" xml:space="preserve">
+<svg style="display: none;">
   <defs>
-    <pattern
-      id="tgPattern"
-      patternUnits="userSpaceOnUse"
-      width="256"
-      height="256">
-	</pattern>
-     <style type="text/css">
-	.st0{fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st1{fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;}
-	.st2{fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1.9833,9.9166;}
-	.st3{stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st4{fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	
-		.st5{fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:5,10;}
-	.st6{fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.9628,9.6277;}
-   </style>
-   <g>
+    <pattern id="tgPattern" patternUnits="userSpaceOnUse" width="562.5" height="1218" viewBox="0 0 1125 2436">
+      <svg version="1.1" id="Слой_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1125 2436" style="enable-background:new 0 0 1125 2436;" xml:space="preserve">
+        <style type="text/css">
+          .st0{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+          .st1{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;}
+          .st2{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1.9833,9.9166;}
+          .st3{stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+          .st4{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+          .st5{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:5,10;}
+          .st6{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.9628,9.6277;}
+        </style>
+    <g>
 	<path class="st0" d="M921.49,1186.25c2.63,4.72,7.51,4.49,11.39,0.38c34.88-37.25,96.28-26.91,131.17-64.16
 		c9.34-9.91,5.39-10.39-31.57-76.74c-2.63-4.72-7.51-4.49-11.39-0.38c-34.88,37.25-96.28,26.91-131.17,64.16
 		C880.58,1119.41,884.53,1119.9,921.49,1186.25z M900.26,1127.8c3.83-4.07,6.31-11.26,3.02-17.43
@@ -55,8 +63,8 @@
 	<path class="st0" d="M958.56,1126.25c15.57,27.95,52.43,7.43,36.85-20.53C979.84,1077.77,942.98,1098.29,958.56,1126.25z"/>
 	<path class="st0" d="M1014.63,1101.72c4.31,7.74,16.02,1.23,11.7-6.52C1022.03,1087.46,1010.31,1093.97,1014.63,1101.72z"/>
 	<path class="st0" d="M926.89,1135.43c4.31,7.74,16.02,1.23,11.7-6.52C934.28,1121.17,922.57,1127.68,926.89,1135.43z"/>
-   </g>
-   <path class="st1" d="M775.03,2148.29c21.55,3.32,35.57-19.57,17.86-40.25c5.08-10.2,4.45-14.93-0.88-17.68
+    </g>
+    <path class="st1" d="M775.03,2148.29c21.55,3.32,35.57-19.57,17.86-40.25c5.08-10.2,4.45-14.93-0.88-17.68
 	c-4.62-2.39-8.41-1.04-12.85,5.91c-2.78-1.85-5.86-3.68-9.22-5.47c2.81-7.25,1.67-10.99-2.83-13.32c-4.66-2.41-8.47-1.01-12.96,6.09
 	c-2.25-0.89-4.59-1.77-7.02-2.64c-21.13-7.5-26.68,8.88-12.77,15.92l-25.38,49.07c-11.22-4.78-25.2,7.38-7.22,19.97
 	c2.49,1.74,4.92,3.38,7.3,4.92c-3.06,7.58-1.96,11.43,2.64,13.81c4.42,2.29,8.09,1.14,12.29-5.06c3.41,1.77,6.67,3.3,9.79,4.6
@@ -1750,18 +1758,15 @@
 	c0.35,0.16,0.7,0.32,1.06,0.48c0.07,0.03,0.14,0.06,0.21,0.09C1103.84,904.64,1104.97,906.21,1104.49,910.06z M1110.46,900.36
 	c-0.42,0.89-1.97,1.82-3.16,1.25c-1.06-0.51-2.01-0.94-2.88-1.34c-0.24-0.15-0.49-0.28-0.73-0.4c-0.36-0.17-0.72-0.31-1.07-0.43
 	c-3.17-1.49-3.46-1.9-3.36-2.83l0.25-2.39c0.29,0.1,0.69,0.28,1.26,0.55l8.78,4.21C1110.82,899.61,1110.6,900.08,1110.46,900.36z"/>
+	</svg>
     </pattern>
   </defs>
-
-
-  <rect
-    x="0"
-    y="0"
-    width="1000"
-    height="10000"
-    fill="url(#tgPattern)" />
-
 </svg>
+
+<div class="bg" id="bgContainer">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+    <rect width="100%" height="100%" fill="url(#tgPattern)" />
+  </svg>
 </div>
 
 </body>
