@@ -112,6 +112,14 @@
     line-height: 1.5;
     max-width: 400px;
     padding: 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .copyright-text:hover {
+    color: rgba(000, 255, 255, 0.9);
+    text-decoration: underline;
   }
 </style>
 </head>
@@ -1852,7 +1860,9 @@
   <div class="loading-text">
     This is how loading screen would look like,<br>
     If you are seeing this at production please restart the website
-    <div class="copyright-text">© 2025 Copyright All Rights Reserved</div>
+    <a href="https://github.com/IMAGE002/Build1/blob/main/LICENSE" class="copyright-text" target="_blank" rel="noopener noreferrer">
+      © 2025 Copyright All Rights Reserved
+    </a>
   </div>
 </div>
 
