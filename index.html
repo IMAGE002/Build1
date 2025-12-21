@@ -2,20 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Infinite Telegram Background</title>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
-  html, body {
+  * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
     height: 100%;
+    overflow: hidden;
     font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     background-color: #0f1a24;
-    overflow: hidden;
+    position: fixed;
+    touch-action: none;
   }
 
   .bg {
@@ -43,6 +54,16 @@
     }
   }
 
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    .bg svg {
+      width: 400%;
+      height: 400%;
+      top: -150%;
+      left: -150%;
+    }
+  }
+
   /* Loading screen */
   .loading-container {
     position: fixed;
@@ -52,18 +73,60 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    padding: 20px;
     padding-top: 50vh;
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .loading-container {
+      padding-top: 40vh;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .loading-container {
+      padding-top: 35vh;
+    }
   }
 
   #lottie-container {
     width: 200px;
     height: 200px;
     margin-bottom: 32px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    #lottie-container {
+      width: 160px;
+      height: 160px;
+      margin-bottom: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #lottie-container {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 20px;
+    }
   }
 
   .loading-bar-wrapper {
     width: 280px;
+    max-width: 90vw;
     margin-bottom: 24px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .loading-bar-wrapper {
+      width: 240px;
+      margin-bottom: 20px;
+    }
   }
 
   .loading-bar-bg {
@@ -102,28 +165,111 @@
     line-height: 1.5;
     max-width: 400px;
     padding: 0 20px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .loading-text {
+      font-size: 13px;
+      max-width: 320px;
+      padding: 0 16px;
+      margin-bottom: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .loading-text {
+      font-size: 12px;
+      max-width: 280px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
   }
   
   .copyright-text {
-    color: rgba(000, 255, 255, 0.6);
+    color: rgba(0, 255, 255, 0.6);
     font-size: 14px;
     font-weight: 400;
-    text-align: bottom;
+    text-align: center;
     line-height: 1.5;
     max-width: 400px;
-    padding: 20px;
+    padding: 12px 20px;
+    margin-top: 8px;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     transition: color 0.3s ease;
   }
   
+  @media (max-width: 768px) {
+    .copyright-text {
+      font-size: 12px;
+      padding: 10px 16px;
+      max-width: 320px;
+      margin-top: 6px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .copyright-text {
+      font-size: 11px;
+      padding: 8px 12px;
+      max-width: 260px;
+      margin-top: 4px;
+    }
+  }
+  
   .copyright-text:hover {
-    color: rgba(000, 255, 255, 0.9);
+    color: rgba(0, 255, 255, 0.9);
     text-decoration: underline;
+  }
+
+  /* Prevent scrolling on mobile */
+  body.no-scroll {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Portrait specific optimizations */
+  @media (orientation: portrait) and (max-width: 768px) {
+    .bg svg {
+      width: 350%;
+      height: 600%;
+      top: -200%;
+      left: -125%;
+    }
+  }
+
+  /* Landscape phone optimization */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .loading-container {
+      padding-top: 20vh;
+    }
+    
+    #lottie-container {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 16px;
+    }
+    
+    .loading-bar-wrapper {
+      margin-bottom: 16px;
+    }
+    
+    .loading-text {
+      font-size: 11px;
+    }
+    
+    .copyright-text {
+      font-size: 10px;
+      padding: 8px;
+    }
   }
 </style>
 </head>
-<body>
+<body class="no-scroll">
 
 <div class="bg" id="bgContainer">
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
@@ -1844,6 +1990,7 @@
 	c0.35,0.16,0.7,0.32,1.06,0.48c0.07,0.03,0.14,0.06,0.21,0.09C1103.84,904.64,1104.97,906.21,1104.49,910.06z M1110.46,900.36
 	c-0.42,0.89-1.97,1.82-3.16,1.25c-1.06-0.51-2.01-0.94-2.88-1.34c-0.24-0.15-0.49-0.28-0.73-0.4c-0.36-0.17-0.72-0.31-1.07-0.43
 	c-3.17-1.49-3.46-1.9-3.36-2.83l0.25-2.39c0.29,0.1,0.69,0.28,1.26,0.55l8.78,4.21C1110.82,899.61,1110.6,900.08,1110.46,900.36z"/>
+        
       </pattern>
     </defs>
     <rect width="100%" height="100%" fill="url(#tgPattern)" />
@@ -1860,14 +2007,25 @@
   <div class="loading-text">
     This is how loading screen would look like,<br>
     If you are seeing this at production please restart the website
-    <a href="https://github.com/IMAGE002/Build1/blob/main/LICENSE" class="copyright-text" target="_blank" rel="noopener noreferrer">
-      © 2025 Copyright All Rights Reserved
-    </a>
   </div>
+  <a href="https://github.com/IMAGE002/Build1/blob/main/LICENSE" class="copyright-text" target="_blank" rel="noopener noreferrer">
+    © 2025 Copyright All Rights Reserved
+  </a>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 <script>
+  // Prevent scrolling on mobile
+  document.body.classList.add('no-scroll');
+  
+  // Prevent pull-to-refresh on mobile
+  document.addEventListener('touchmove', function(e) {
+    if (e.touches.length > 1) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  // Load Lottie animation
   lottie.loadAnimation({
     container: document.getElementById('lottie-container'),
     renderer: 'svg',
@@ -1875,6 +2033,24 @@
     autoplay: true,
     path: 'assets/dev_duck--@DMJ_Stickers.json'
   });
+
+  // Handle orientation changes
+  window.addEventListener('orientationchange', function() {
+    // Force a reflow to apply new styles
+    document.body.style.display = 'none';
+    document.body.offsetHeight; // Trigger reflow
+    document.body.style.display = '';
+  });
+
+  // Viewport height fix for mobile browsers
+  function setVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  
+  setVH();
+  window.addEventListener('resize', setVH);
+  window.addEventListener('orientationchange', setVH);
 </script>
 
 </body>
